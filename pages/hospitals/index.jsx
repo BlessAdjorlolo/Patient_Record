@@ -1,9 +1,9 @@
 import React from "react";
-import {getHospitals} from "../../Utils/getHospital"
+import {getPatients} from "../../Utils/getPatients"
 import Link from "next/link";
     
 export async function getStaticProps(){
-  const hospitals = await getHospitals();
+  const hospitals = await getPatients();
 
   return{
     props:{

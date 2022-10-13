@@ -31,7 +31,7 @@ export default function Patient() {
             Enter a Patients name in the search box below and see his/her
             records pop up or click
             <a
-              href="hospitals/add-patient"
+              href="/hospitals/add-patient"
               className="text-cyan-500 hover:text-cyan-600 transition-duration-200 ease-in-out font-semibold cursor-pointer hover:shadow-lg "
             >
               {" "}
@@ -59,7 +59,7 @@ export default function Patient() {
             </div>
           </form>
           <div className="text-center mt-5 text-gray-400 w-full">
-            {Object.keys(foundPatient).length > 0 ? (
+            {foundPatient ? (
               <Link
                 href={{
                   pathname: `/dashboard/patients/${foundPatient._id}`,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PatientRecords from "../../../components/PatientRecords";
-import { getHospitals } from "../../../Utils/getPatients";
+import { getPatients } from "../../../Utils/getPatients";
 import { useRouter } from "next/router";
 import { usePatientContext } from "../../../context/patientContext";
 
@@ -16,14 +16,23 @@ import { usePatientContext } from "../../../context/patientContext";
 //     };
 // }
 
-// export async function getStaticProps(context) {
-//     const hospital = await getHospitals(context.params.patientId);
-//     return{
-//         props:{
-//             hospital,
-//         },
-//     }
-// }
+export async function getServerSideProps(context) {
+  const hospital = await getPatients(context.params.patientId);
+
+  if (hospital) {
+    return {
+      props: {
+        hospital,
+      },
+    };
+  } else {
+    return {
+      props: {
+        hospital: null,
+      },
+    };
+  }
+}
 
 const PatientDetails = () => {
   const [patient, setPatient] = useState({});

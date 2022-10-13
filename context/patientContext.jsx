@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 export const PatientContext = createContext({
   patientList: [],
-  foundPatient: {},
+  foundPatient: null,
   setPatientList: () => {},
   filterPatientList: () => {},
   setFoundPatient: () => {},
