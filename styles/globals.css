@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -23,4 +27,47 @@ a {
     color: white;
     background: black;
   }
+}
+
+@layer base {
+  body {
+    @apply bg-gray-100
+  }
+  .grid{
+    @apply py-4 px-4
+  }
+  .cy-1{
+    @apply bg-cyan-200
+  }
+  .cy-2{
+    @apply bg-cyan-400 text-gray-700
+  }
+}
+
+.PatientList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  font-size: px;
+}
+
+th {
+  background-color: rgb(137, 212, 255);
+}
+
+td {
+  background-color: rgb(219, 241, 255);
+  font-weight: lighter;
 }
