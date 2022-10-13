@@ -2,7 +2,7 @@ import React from "react";
 import { getPatients } from "../../Utils/getPatients";
 import Link from "next/link";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const hospitals = await getPatients();
 
   return {
