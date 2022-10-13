@@ -8,7 +8,6 @@ import {
   MdPeople,
   MdOutlineLogout,
 } from "react-icons/md";
-import DropDown from "../pages/DropDown";
 import { FaNotesMedical, FaHome, FaHospitalUser } from "react-icons/fa";
 import Link from "next/link";
 

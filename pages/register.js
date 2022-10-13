@@ -59,7 +59,7 @@ function Register() {
         <div className="hidden sm:block border-transparent">
           <img
             className="w-full h-full object-cover"
-            src="images/Background.jpg"
+            src="images/background.jpg"
             alt=""
           />
         </div>
