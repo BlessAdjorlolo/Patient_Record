@@ -1,32 +1,28 @@
 import React from "react";
-import {getPatients} from "../../Utils/getPatients"
+import { getPatients } from "../../Utils/getPatients";
 import Link from "next/link";
-    
-export async function getStaticProps(){
+
+export async function getStaticProps() {
   const hospitals = await getPatients();
 
-  return{
-    props:{
+  return {
+    props: {
       hospitals,
     },
   };
 }
 
-
-const Hostpitals= ({hospitals})=>{
-  console.log(hospitals)
-  return(
+const Hostpitals = ({ hospitals }) => {
+  console.log(hospitals);
+  return (
     <div>
-      {hospitals?.map((hospital)=> (
-       <p>
-        <Link href={`/hospitals/${hospital._id}`}>
-        {hospital.patientId}
-        </Link>
+      {hospitals?.map((hospital, idx) => (
+        <p key={idx}>
+          <Link href={`/hospitals/${hospital._id}`}>{hospital.patientId}</Link>
         </p>
-      )
-      )}
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Hostpitals
+export default Hostpitals;
