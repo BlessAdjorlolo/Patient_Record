@@ -85,4 +85,4 @@ function PatientList() {
   );
 }
 
-export default PatientList
+export default PatientList;
