@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { usePatientContext } from "../../context/patientContext";
 import { getPatients } from "../../Utils/getPatients";
 
-
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const patients = await getPatients();
 
   return {
