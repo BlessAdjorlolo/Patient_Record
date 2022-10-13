@@ -2,6 +2,7 @@ import React from 'react'
 import { FaRegEdit } from 'react-icons/fa';
 import { FcViewDetails } from 'react-icons/fc';
 import "styled-jsx/css";
+import Link from 'next/link';
 
 
 function PatientList() {
