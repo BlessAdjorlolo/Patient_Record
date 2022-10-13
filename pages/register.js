@@ -1,58 +1,58 @@
-import React, {useState} from 'react'
-import axios from "axios"
+import React, { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 
-function register() {
-
-  const [data,setData] = useState({
+function Register() {
+  const [data, setData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
-  })
+  });
 
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-    const [error, setError] =useState("");
-    const router = useRouter();
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
-    const handleChange = (e) => {
-      setData({...data, [e.target.name]: e.target.value});
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { firstName, lastName, email, password, confirmPassword } = data;
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const{firstName, lastName, email, password, confirmPassword} = data;
-
-      if(firstName === "" &&
+    if (
+      firstName === "" &&
       lastName === "" &&
       email === "" &&
       password === "" &&
       confirmPassword === ""
-      ) {
-        setError("Please provide all the information");
-        return;
-      }
-
-      if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-        setError("Please enter a valid email");
-        return;
-      }
-
-      if (password !== confirmPassword){
-        setError("password do not match");
-        return
-      }
-
-      try {
-         await axios.post(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/register`, 
-          data);
-        router.push("/Login")
-      } catch (error) {
-        setError(error.message)
-      }
+    ) {
+      setError("Please provide all the information");
+      return;
     }
+
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setError("Please enter a valid email");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("password do not match");
+      return;
+    }
+
+    try {
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/register`,
+        data
+      );
+      router.push("/Login");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   return (
     <div className="py-20 px-36 items-center justify-center bg-[url(/background1.jpg)] bg-cover object-cover bg-center bg-no-repeat">
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
@@ -159,4 +159,4 @@ function register() {
 }
 // import { useRouter } from 'next/router';
 
-export default register;
+export default Register;

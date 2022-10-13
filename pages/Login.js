@@ -4,6 +4,7 @@ import{MdLockOutline} from "react-icons/md"
 import {GoFileDirectory} from "react-icons/go"
 import {signIn} from "next-auth/react";
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 const Login = () => {
@@ -122,14 +123,14 @@ const Login = () => {
           <h2 className="text-3xl font-bold mb-2">Welcome to Patient Record</h2>
           <div className="border-2 w-10 border-white inline-block mb-2"></div>
           <p className="mb-10">Fill up personal information to start</p>
+          <Link href="/register">
           <button
             type="submit"
             className="border-2 rounded-lg px-7 py-2 inline-block font-semibold border-white text-xl text-white hover:bg-white hover:text-cyan-500 duration-200m"
           >
-            <a href="/register" className="">
               Sign Up
-            </a>
           </button>
+          </Link>
         </div>
       </div>
     </div>

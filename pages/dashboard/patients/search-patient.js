@@ -30,13 +30,13 @@ export default function Patient() {
           <p className=" text-gray-600 text-center text-lg mt-4">
             Enter a Patients name in the search box below and see his/her
             records pop up or click
-            <a
+            <Link
               href="/hospitals/add-patient"
               className="text-cyan-500 hover:text-cyan-600 transition-duration-200 ease-in-out font-semibold cursor-pointer hover:shadow-lg "
             >
               {" "}
               here
-            </a>{" "}
+            </Link>{" "}
             to add new patient
           </p>
           <form onSubmit={handleSubmit}>
